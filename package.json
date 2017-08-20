@@ -9,7 +9,15 @@
   },
   "dependencies": {
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "axios": "^0.13.1",
+    "natural": "^0.4.0",
+    "radium": "^0.18.1",
+    "react-bootstrap": "^0.29.4",
+    "react-contextmenu": "^1.6.2",
+    "react-desktop": "^0.2.0",
+    "source-map-support": "^0.4.0",
+    "tmi.js": "^1.0.0"
   },
   "homepage": "./",
   "main": "src/electron-starter.js",
