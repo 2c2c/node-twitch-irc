@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Hello Electron React!</title>
+  <link href='https://raw.githubusercontent.com/kristoferjoseph/flexboxgrid/master/dist/flexboxgrid.css' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap-theme.min.css">
+  <script>
+  if (process.env.NODE_ENV !== 'production') {
+    require('electron-react-devtools').inject()
+  }
+  </script>
+  <script>
+  (function() {
+    if (!process.env.HOT) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = '../dist/style.css';
+      document.write(link.outerHTML);
+    }
+  }());
+  </script>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+  (function() {
+    const script = document.createElement('script');
+    script.src = (process.env.HOT) ? 'http://localhost:3000/dist/bundle.js' : '../dist/bundle.js';
+    document.write(script.outerHTML);
+  }());
+  </script>
+</body>
+</html>
