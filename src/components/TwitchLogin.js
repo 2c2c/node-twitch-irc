@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router";
 // import { shell } from "electron";
-const {shell} = window.require("electron")
+const { shell } = window.require("electron");
 import TwitchInput from "./TwitchInput";
 import TwitchButton from "./TwitchButton";
 

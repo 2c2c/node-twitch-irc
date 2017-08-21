@@ -1,14 +1,10 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component, PropTypes } from "react";
 
 export default class Icons extends Component {
-  static propTypes = {
-  };
+  static propTypes = {};
 
   // check for turbo, sub, mod icons
   render() {
-    return (
-      <div>
-      </div>
-    );
+    return <div />;
   }
 }

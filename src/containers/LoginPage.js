@@ -1,28 +1,27 @@
-import React, { Component } from 'react';
-import TwitchLogin from '../components/TwitchLogin';
-import fs from 'fs';
+import React, { Component } from "react";
+import TwitchLogin from "../components/TwitchLogin";
+import fs from "fs";
 
 export default class LoginPage extends Component {
   state = {
-    username: '',
-    oauth: '',
-    channel: ''
-  }
+    username: "",
+    oauth: "",
+    channel: ""
+  };
 
   handleChange(state) {
     this.setState(state);
-  };
+  }
 
   cachedLoginDetails() {
     try {
-      var obj = JSON.parse(fs.readFileSync('./login', 'utf8'));
+      var obj = JSON.parse(fs.readFileSync("./login", "utf8"));
       this.setState({
         username: obj.username,
         oauth: obj.oauth
-      })
-    }
-    catch (e) {
-      console.log(e)
+      });
+    } catch (e) {
+      console.log(e);
     }
   }
 
@@ -31,9 +30,14 @@ export default class LoginPage extends Component {
   }
 
   render() {
-    const {username, oauth, channel} = this.state;
+    const { username, oauth, channel } = this.state;
     return (
-      <TwitchLogin handleChange={(state) => this.handleChange(state)} username={username} oauth={oauth} channel={channel} />
+      <TwitchLogin
+        handleChange={state => this.handleChange(state)}
+        username={username}
+        oauth={oauth}
+        channel={channel}
+      />
     );
   }
 }
