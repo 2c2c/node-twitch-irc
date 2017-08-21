@@ -29,7 +29,7 @@ export default class ChatWindow extends Component {
       }}>
         <LeftPanel toggleStreamPreview={toggleStreamPreview} toggleFilter={toggleFilter} client={client} popularWords={popularWords}/>
         <MiddlePanel client={client} showStreamPreview={showStreamPreview} channel={channel} filteredMessages={filteredMessages} />
-        <RightPanel handleFocusedUser={handleFocusedUser} focusedUser={focusedUser} client={client} oauth={oauth}/>
+        {/* <RightPanel handleFocusedUser={handleFocusedUser} focusedUser={focusedUser} client={client} oauth={oauth}/> */}
       </div>
     );
   }

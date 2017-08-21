@@ -19,7 +19,7 @@
     "react-dom": "^15.4.2",
     "react-router": "^2.2.4",
     "source-map-support": "^0.4.0",
-    "tmi.js": "^1.0.0"
+    "tmi.js": "^1.2.1"
   },
   "homepage": "./",
   "main": "src/electron-starter.js",
