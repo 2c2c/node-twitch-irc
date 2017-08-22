@@ -1,15 +1,10 @@
-import axios from "axios";
 
-export function formatBadges(badges, badgeAPI) {
+export function formatBadges(badges) {
   if (!badges) {
     return "";
   }
   let attributes = [];
 
-  // TODO sub id
-  if ("subscriber" in badges) {
-    attributes.push(badgeAPI.subscriber.image);
-  }
   if ("turbo" in badges) {
     attributes.push("https://static-cdn.jtvnw.net/chat-badges/turbo.png");
   }
@@ -28,10 +23,13 @@ export function formatBadges(badges, badgeAPI) {
   if ("admin" in badges) {
     attributes.push("https://static-cdn.jtvnw.net/chat-badges/admin.png");
   }
+  if ("premium" in badges) {
+    attributes.push("https://static-cdn.jtvnw.net/badges/v1/a1dd5073-19c3-4911-8cb4-c464a7bc1510/1");
+  }
 
   return attributes
     .map(x => {
-      return `<img class="emoticon" src="${x}">`;
+      return `<img class="badge" src="${x}">`;
     })
     .join("");
 }
@@ -42,7 +40,7 @@ export function formatEmotes(text, emotes) {
     var e = emotes[i];
     for (var j in e) {
       var mote = e[j];
-      if (typeof mote == "string") {
+      if (typeof mote === "string") {
         mote = mote.split("-");
         mote = [parseInt(mote[0]), parseInt(mote[1])];
         var length = mote[1] - mote[0],

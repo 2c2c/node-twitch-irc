@@ -9,6 +9,7 @@ import ChatWindow from "./ChatWindow.js";
 import { formatBadges, formatEmotes } from "./emotes.js";
 import axios from "axios";
 import TwitchPlayer from "./TwitchPlayer";
+
 const fs = window.require("fs");
 // var natural = require('natural');
 var wordUsage = require("./wordUsage");
@@ -65,6 +66,7 @@ export default class ChatWindowContainer extends Component {
     });
 
     this.setState({ client: client });
+
 
     axios
       .get(`https://api.twitch.tv/kraken/chat/${channel}/badges`, {
@@ -191,16 +193,12 @@ export default class ChatWindowContainer extends Component {
           return (
             <div key={id} style={style}>
               <span
-                style={{
-                  marginLeft: "10px"
-                }}
                 dangerouslySetInnerHTML={{
                   __html: formatBadges(x.badges, badgeAPI)
                 }}
               />
               <span
                 style={{
-                  marginLeft: "10px",
                   marginRight: "10px",
                   color: x.color,
                   fontWeight: "bold",

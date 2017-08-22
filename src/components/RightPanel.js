@@ -9,6 +9,7 @@ import PopularWordList from "./PopularWordList";
 import axios from "axios";
 import UserList from "./UserList";
 import RightPanelContextMenu from "./RightPanelContextMenu";
+import jsonp from "jsonp";
 
 var wordUsage = require("./wordUsage");
 var util = require("util");
@@ -34,23 +35,27 @@ export default class RightPanel extends Component {
       }
       // channel is in #channelname form
       channel = channel.substring(1);
-      axios
-        .get(`http://tmi.twitch.tv/group/user/${channel}/chatters`, {
-          headers: { "Client-ID": oauth.replace("oauth:", "") }
-        })
-        .then(resp => {
-          this.setState({
-            mods: resp.data.chatters.moderators,
-            staff: resp.data.chatters.staff,
-            admins: resp.data.chatters.admins,
-            global_mods: resp.data.chatters.global_mods,
-            viewers: resp.data.chatters.viewers,
-            count: resp.data.chatter_count
-          });
-        })
-        .catch(err => {
-          console.log(err);
-        });
+
+      // axios doesn't support jsonp. (?!)
+      jsonp(
+        `http://tmi.twitch.tv/group/user/${channel}/chatters`,
+        null,
+        function(err, resp) {
+          if (err) {
+            console.error(err.message);
+          } else {
+            console.log(resp);
+            this.setState({
+              mods: resp.data.chatters.moderators,
+              staff: resp.data.chatters.staff,
+              admins: resp.data.chatters.admins,
+              global_mods: resp.data.chatters.global_mods,
+              viewers: resp.data.chatters.viewers,
+              count: resp.data.chatter_count
+            });
+          }
+        }.bind(this)
+      );
     });
   }
   // tagged list

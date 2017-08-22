@@ -42,7 +42,7 @@ export default class ChatWindow extends Component {
           channel={channel}
           filteredMessages={filteredMessages}
         />
-        {/* <RightPanel handleFocusedUser={handleFocusedUser} focusedUser={focusedUser} client={client} oauth={oauth}/> */}
+        <RightPanel handleFocusedUser={handleFocusedUser} focusedUser={focusedUser} client={client} oauth={oauth}/>
       </div>
     );
   }
