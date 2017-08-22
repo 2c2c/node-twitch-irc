@@ -1,13 +1,25 @@
-#bootstrap create-react-app and electron
 
-Code repo for post on freeCodeCamp.
+A twitch.tv chat/dashboard app made with React and Electron. Interfaces with twitch
+via tmi.js.
 
-https://medium.freecodecamp.com/building-an-electron-application-with-create-react-app-97945861647c#.ze6c9qin1
+If you want to play with it, clone and:
 
-There is another branch, [npm-start](https://github.com/csepulv/electron-with-create-react-app/tree/npm-start)
-It uses `npm-start` instead of `npm run dev`. (change submitted by [vcarl](https://github.com/vcarl)) Details are in this [pull request](https://github.com/csepulv/electron-with-create-react-app/pull/2)
+```
+npm i
+npm run dev
+```
 
-Thanks to [marbemac](https://github.com/marbemac) for submitting a pull request that captures logging output. It can be found in [logging-capture](https://github.com/csepulv/electron-with-create-react-app/tree/logging-capture)
+![](http://i.imgur.com/Pa83gGE.gif)
 
-Thanks to [vicentedealencar](https://github.com/vicentedealencar) for an example of using [electron-builder](https://github.com/electron-userland/electron-builder) for packaging. Details are [here](https://github.com/vicentedealencar/electron-with-create-react-app/commit/f1729381d588e65ac140ce5a08cc6277babd9641).
+The imagined purpose for the app is for popular streamers who deal with fast moving chat for hours everyday.
+
+* All of the admin/mod commands are available
+* Show/hide stream preview
+* Term popularity list with filtering
+
+The term popularity list can help a streamer quickly understand the general sentiment of the stream without straining to read tens of lines per second. If one of the terms is "AUDIO" or "OVERLAY", you probably have have a stream issue to fix. If one of the terms is ResidentSleeper, you're probably being boring.
+
+![](http://i.imgur.com/stehLdC.gif)
+
+![](http://i.imgur.com/fON8fUW.gif)
 
